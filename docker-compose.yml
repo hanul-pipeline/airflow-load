@@ -55,6 +55,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./lib:/opt/airflow/lib
       - ./src:/opt/airflow/src
+      - logs:/opt/airflow/logs
     environment: *airflow_environment
     command: scheduler
 
