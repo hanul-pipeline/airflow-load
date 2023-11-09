@@ -12,13 +12,13 @@ port_fastapi = Variable.get("port_fastapi")
 sensor_id = 200
 
 # set execution date & time
-date = "{{ (execution_date + macros.timedelta(days=1)).strftime('%Y-%m-%d') }}"
+date = "{{ (execution_date + macros.timedelta(hours=9)).strftime('%Y-%m-%d') }}"
 
 # default argument 설정
 default_args = {
     'owner': 'hanul:1.0.0',
     'depends_on_past': True,
-    'start_date': datetime(2023,10,23)
+    'start_date': datetime(2023,11,8)
 }
 
 # dag settings
@@ -27,7 +27,7 @@ dag = DAG(
 	default_args=default_args,
 	tags=['remove', 'data', 'mysql', 'curl'],
 	max_active_runs=1,
-	schedule_interval="5 * * * *")
+	schedule_interval="5 15 * * *")
 
 
 # tasks
